@@ -1,0 +1,33 @@
+# GitHub 通知監視ツール設定ファイル
+# 
+# GitHub トークンの設定:
+#   - GITHUB_TOKEN 環境変数を使用するか
+#   - 以下の github_token フィールドで指定
+# github_token: "ghp_xxxxxxxxxxxxxxxxxxxx"
+
+# キャッシュディレクトリ (空の場合は ~/.cache/github-notify を使用)
+# cache_dir: "/path/to/cache"
+
+# 監視対象リポジトリ
+repositories:
+  # デフォルトブランチのみ監視
+  - repo: "microsoft/vscode"
+    branches: ["main"]
+  
+  # 特定ブランチを監視
+  - repo: "torvalds/linux"
+    branches: ["master"]
+  
+  # 全ブランチを監視
+  - repo: "golang/go"
+    branches: ["*"]
+  
+  # 複数ブランチを指定
+  # - repo: "myorg/myrepo"
+  #   branches: ["main", "develop", "staging"]
+
+# 通知設定
+notifications:
+  enable_issues: true   # Issue 通知
+  enable_prs: true      # プルリクエスト通知
+  enable_commits: true  # コミット通知
